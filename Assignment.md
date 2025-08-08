@@ -1,4 +1,4 @@
-# Code Assignment
+# Assignment
 
 ### Intro
 
