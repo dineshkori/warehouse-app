@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "bfdb7366-d696-4895-b358-deeeb745f178",
+		"name": "Ware-House-Collection-IKea",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "731964"
+	},
+	"item": [
+		{
+			"name": "GetInventory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/warehouse/inventory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"warehouse",
+						"inventory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sellAPI",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/warehouse/sell/Dining Chair",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"warehouse",
+						"sell",
+						"Dining Chair"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAvailableProducts",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/warehouse/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"warehouse",
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

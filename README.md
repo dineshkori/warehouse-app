@@ -1,10 +1,14 @@
 ### Warehouse App
 
-A production-grade Node.js application built with TypeScript and Express to manage warehouse inventory and product availability.
+Aim to create production-grade Node.js application that provide API for managing warehouse inventory and product availability.
 
 ### 📦 Overview
 
 This application loads inventory and product data from JSON files, calculates available product quantities based on current stock, and allows selling products which updates the inventory accordingly.
+
+### Assignemt Details
+
+[Assignment.md](Assignment.md)
 
 ### 🚀 Features
 
@@ -13,7 +17,16 @@ This application loads inventory and product data from JSON files, calculates av
 - Sell a product and update inventory
 - RESTful API endpoints for interaction
 
+## Future Enhancement
+
+    - Load articles and products from No SQL DB.
+    - Update of Article inventory using API.
+    - Scale up the API and for concurrency checks.
+    - More test automation for easy maitainability of code base.
+
 ### 📁 Project Structure
+
+Basic structure of the project
 
 ```
 warehouse-app/
@@ -29,15 +42,18 @@ warehouse-app/
 
 ### 🛠 Installation
 
-```
+```bash
+npm install
 
 ```
 
-### Hyper parameters
+### 📂 Data Files
 
-```
+[inventory.json](/src/data/inventory.json) &  [products.json](/src/data/products.json)  had to be copied to dist/data folder, for running this app properly as I am refering data from these file as sample load
 
-```
+- inventory.json: Contains article definitions with art_id, name, and stock.
+
+- products.json: Contains product definitions with name, price and required articles.
 
 ### ⚙️ Build and Run
 
@@ -59,74 +75,67 @@ npm start
 
 Example:
 
-
 ### Sample request & Response
-```json
 
-Get the Inventory of with Arctile number and stock in Inventory
-
+- Get the Inventory of with Arctile number and stock in Inventory {SERVER_URL}/warehouse/inventory 
+```
 curl -X GET http://localhost:3000/warehouse/inventory
-
-
-{
-    "1": {
-        "art_id": "1",
-        "name": "leg",
-        "stock": 12
-    },
-    "2": {
-        "art_id": "2",
-        "name": "screw",
-        "stock": 17
-    },
-    "3": {
-        "art_id": "3",
-        "name": "seat",
-        "stock": 2
-    },
-    "4": {
-        "art_id": "4",
-        "name": "table top",
-        "stock": 1
-    }
-}
 ```
 
 ```json
-/warehouse/products 
+{
+  "1": {
+    "art_id": "1",
+    "name": "leg",
+    "stock": 12
+  },
+  "2": {
+    "art_id": "2",
+    "name": "screw",
+    "stock": 17
+  },
+  "3": {
+    "art_id": "3",
+    "name": "seat",
+    "stock": 2
+  },
+  "4": {
+    "art_id": "4",
+    "name": "table top",
+    "stock": 1
+  }
+}
+```
 
-Get the Available products and Inventory
-
+- Get the Available products and Inventory {SERVER_URL}/warehouse/products
+```
 curl -X GET 'http://localhost:3000/warehouse/products'
-
-{
-    "Dining Chair": {
-        "quantity": 2,
-        "price": 1000
-    },
-    "Dinning Table": {
-        "quantity": 1,
-        "price": 2500
-    }
-}
-
 ```
 
 ```json
-/warehouse/sell/Dining Chair
-
-Sell Api for product 'Dinning chair'
-
-
-http://localhost:3000/warehouse/sell/Dining Chair
-
 {
-    "message": "Product sold successfully."
+  "Dining Chair": {
+    "quantity": 2,
+    "price": 1000
+  },
+  "Dinning Table": {
+    "quantity": 1,
+    "price": 2500
+  }
 }
-
 ```
 
+- Sell Api for product 'Dinning chair' {SERVER_URL}/warehouse/sell/Dining Chair
+```
+curl -X POST http://localhost:3000/warehouse/sell/Dining Chair
+```
+```json
+{
+  "message": "Product sold successfully."
+}
+```
 
-📂 Data Files
-inventory.json: Contains article definitions with art_id, name, and stock.
-products.json: Contains product definitions with name and required articles.
+### ⚙️ Postman collection
+
+PFB is the postman collection for local integration testing
+[PosmanCollection](Ware_House_postman_collection.json)
