@@ -49,7 +49,7 @@ npm install
 
 ### 📂 Data Files
 
-[inventory.json](/src/data/inventory.json) &  [products.json](/src/data/products.json)  had to be copied to dist/data folder, for running this app properly as I am refering data from these file as sample load
+[inventory.json](/src/data/inventory.json) & [products.json](/src/data/products.json) had to be copied to dist/data folder, for running this app properly as I am refering data from these file as sample load
 
 - inventory.json: Contains article definitions with art_id, name, and stock.
 
@@ -77,7 +77,8 @@ Example:
 
 ### Sample request & Response
 
-- Get the Inventory of with Arctile number and stock in Inventory {SERVER_URL}/warehouse/inventory 
+- Get the Inventory of with Arctile number and stock in Inventory {SERVER_URL}/warehouse/inventory
+
 ```
 curl -X GET http://localhost:3000/warehouse/inventory
 ```
@@ -108,6 +109,7 @@ curl -X GET http://localhost:3000/warehouse/inventory
 ```
 
 - Get the Available products and Inventory {SERVER_URL}/warehouse/products
+
 ```
 curl -X GET 'http://localhost:3000/warehouse/products'
 ```
@@ -126,12 +128,24 @@ curl -X GET 'http://localhost:3000/warehouse/products'
 ```
 
 - Sell Api for product 'Dinning chair' {SERVER_URL}/warehouse/sell/Dining Chair
+
 ```
 curl -X POST http://localhost:3000/warehouse/sell/Dining Chair
 ```
+
 ```json
 {
-  "message": "Product sold successfully."
+  "message": "Product not available or not found.",
+  "availability": {
+    "Dining Chair": {
+      "quantity": 0,
+      "price": 1000
+    },
+    "Dinning Table": {
+      "quantity": 0,
+      "price": 2500
+    }
+  }
 }
 ```
 

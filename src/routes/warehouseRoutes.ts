@@ -8,12 +8,18 @@ router.get("/products", (req, res) => {
   res.json(warehouse.getAvailableProducts());
 });
 
-router.post('/sell/:name', (req, res) => {
+router.post("/sell/:name", (req, res) => {
   const success = warehouse.sellProduct(req.params.name);
   if (success) {
-    res.json({ message: "Product sold successfully." });
+    res.json({
+      message: "Product sold successfully.",
+      availability: warehouse.getAvailableProducts(),
+    });
   } else {
-    res.status(400).json({ message: "Product not available or not found." });
+    res.status(400).json({
+      message: "Product not available or not found.",
+      availability: warehouse.getAvailableProducts(),
+    });
   }
 });
 
