@@ -5,5 +5,6 @@ export interface ProductArticle {
 
 export interface Product {
   name: string;
+  price: number;
   contain_articles: ProductArticle[];
 }

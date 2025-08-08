@@ -8,7 +8,7 @@ router.get("/products", (req, res) => {
   res.json(warehouse.getAvailableProducts());
 });
 
-router.post("/sell/:name", (req, res) => {
+router.post('/sell/:name', (req, res) => {
   const success = warehouse.sellProduct(req.params.name);
   if (success) {
     res.json({ message: "Product sold successfully." });
