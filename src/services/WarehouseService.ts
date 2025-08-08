@@ -79,38 +79,6 @@ export class WarehouseService {
     return true;
   }
 
-  /*
-  getAvailableProducts(): Record<string, number> {
-    const availability: Record<string, number> = {};
-    for (const product of this.products) {
-      let minQty = Infinity;
-      for (const article of product.contain_articles) {
-        const inv = this.inventory[article.art_id];
-        if (!inv) {
-          minQty = 0;
-          break;
-        }
-        const available = Math.floor(inv.stock / article.amount_of);
-        minQty = Math.min(minQty, available);
-      }
-      availability[product.name] = minQty;
-    }
-    return availability;
-  }
-
-  sellProduct(productName: string): boolean {
-    const product = this.products.find((p) => p.name === productName);
-    if (!product) return false;
-
-    const available = this.getAvailableProducts()[productName];
-    if (available < 1) return false;
-
-    for (const article of product.contain_articles) {
-      this.inventory[article.art_id].stock -= article.amount_of;
-    }
-    return true;
-  }
-*/
   getInventory(): Record<string, Article> {
     return this.inventory;
   }

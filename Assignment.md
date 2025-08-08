@@ -1,6 +1,6 @@
 # Code Assignment
 
-## Intro
+### Intro
 
 This assignment will be used as a discussion during a technical
 interview.
@@ -23,7 +23,7 @@ Pay attention to naming.
 You may choose any coding language, and we look forward to
 discussing your choice.
 
-## The Task
+### The Task
 
 The assignment is to implement a warehouse software. This software
 should hold articles, and the articles should contain an
