@@ -5,14 +5,14 @@ Aim to create production-grade Node.js application that provide API for managing
 This application loads inventory and product data from JSON files, calculates available product quantities based on current stock, and allows selling products which updates the inventory accordingly.
 
 ### Assignemt
-Details of the assigment could be found in below link
+Details of the assignment could be found in link
 [Assignment.md](Assignment.md)
 
 ### ASssumptions
-- If any one of the article less less to make complete product then product will return unavailable for selling.
-- Added API to get the available product, as it would be useful for getting sellable prodcut.
+- If any one of the article is less to make complete product then product will not be sellable.
+- Additional API added to get the available product, as it would be useful for getting sellable product.
 - No Racing conditon was considered during implementation of this solution.
-- Considered "Product name" as input for product instead of Product ID as the Json only had product name
+- Considered "Product name" as input for sell API product instead of Product ID as the Json only had product name.
 
 ### 🚀 Features
 - Load articles and products from JSON files
@@ -27,7 +27,7 @@ Details of the assigment could be found in below link
     - More test automation for easy maitainability of code base.
 
 ### 📁 Project Structure
-Basic structure of the project
+Standard express based structure used for the project
 
 ```
 warehouse-app/
