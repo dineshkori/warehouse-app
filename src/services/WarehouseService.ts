@@ -12,6 +12,9 @@ export class WarehouseService {
     this.loadProducts();
   }
 
+  /*
+
+  */
   private loadInventory() {
     const data = JSON.parse(
       fs.readFileSync(path.join(__dirname, "../data/inventory.json"), "utf-8")
@@ -42,7 +45,6 @@ export class WarehouseService {
   getAvailableProducts(): Record<string, { quantity: number; price: number }> {
     const availability: Record<string, { quantity: number; price: number }> =
       {};
-
     for (const product of this.products) {
       let minQty = Infinity;
 
@@ -58,7 +60,7 @@ export class WarehouseService {
 
       availability[product.name] = {
         quantity: minQty,
-        price: product.price, // assuming product has a `price` field
+        price: product.price,
       };
     }
 
@@ -79,7 +81,7 @@ export class WarehouseService {
     return true;
   }
 
-  getInventory(): Record<string, Article> {
+   getInventory(): Record<string, Article> {
     return this.inventory;
   }
 }

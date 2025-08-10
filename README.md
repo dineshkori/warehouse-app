@@ -1,40 +1,44 @@
 ### Warehouse App
-
 Aim to create production-grade Node.js application that provide API for managing warehouse inventory and product availability.
 
 ### 📦 Overview
-
 This application loads inventory and product data from JSON files, calculates available product quantities based on current stock, and allows selling products which updates the inventory accordingly.
 
-### Assignemt Details
-
+### Assignemt
+Details of the assigment could be found in below link
 [Assignment.md](Assignment.md)
 
-### 🚀 Features
+### ASssumptions
+- If any one of the article less less to make complete product then product will return unavailable for selling.
+- Added API to get the available product, as it would be useful for getting sellable prodcut.
+- No Racing conditon was considered during implementation of this solution.
+- Considered "Product name" as input for product instead of Product ID as the Json only had product name
 
+### 🚀 Features
 - Load articles and products from JSON files
 - Calculate available quantities of products
 - Sell a product and update inventory
 - RESTful API endpoints for interaction
 
 ## Future Enhancement
-
     - Load articles and products from No SQL DB.
     - Update of Article inventory using API.
     - Scale up the API and for concurrency checks.
     - More test automation for easy maitainability of code base.
 
 ### 📁 Project Structure
-
 Basic structure of the project
 
 ```
 warehouse-app/
 ├── src/
+│   ├── config/
 │   ├── models/
 │   ├── services/
 │   ├── routes/
 │   ├── data/
+│   ├── middleware/
+│   ├── tests/
 │   └── app.ts
 ├── package.json
 ├── tsconfig.json
@@ -48,7 +52,6 @@ npm install
 ```
 
 ### 📂 Data Files
-
 [inventory.json](/src/data/inventory.json) & [products.json](/src/data/products.json) had to be copied to dist/data folder, for running this app properly as I am refering data from these file as sample load
 
 - inventory.json: Contains article definitions with art_id, name, and stock.
@@ -56,17 +59,18 @@ npm install
 - products.json: Contains product definitions with name, price and required articles.
 
 ### ⚙️ Build and Run
-
 ```bash
 # Compile TypeScript
 npm run build
 
 # Start the server
 npm start
+
+# Run the Jest unit test case
+npm test
 ```
 
 ### 🔌 API Endpoints
-
 | Method | Endpoint              | Description                                                                                          |
 | ------ | --------------------- | ---------------------------------------------------------------------------------------------------- |
 | GET    | /warehouse/products   | Returns all products and the quantity of each that is available with the current inventory.          |
@@ -76,7 +80,6 @@ npm start
 Example:
 
 ### Sample request & Response
-
 - Get the Inventory of with Arctile number and stock in Inventory {SERVER_URL}/warehouse/inventory
 
 ```
@@ -150,6 +153,5 @@ curl -X POST http://localhost:3000/warehouse/sell/Dining Chair
 ```
 
 ### ⚙️ Postman collection
-
 PFB is the postman collection for local integration testing
 [PosmanCollection](Ware_House_postman_collection.json)
