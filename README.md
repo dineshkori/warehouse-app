@@ -6,14 +6,14 @@ Aim to create production-grade Node.js application that provide API for managing
 
 This application loads inventory and product data from JSON files, calculates available product quantities based on current stock, and allows selling products which updates the inventory accordingly.
 
-### Assignemt
+### Assignment
 
 Details of the assignment could be found in link
 [Assignment.md](Assignment.md)
 
 ### Assumptions
 
-- If any one of the article is less to make complete product then product will not be sellable.
+- If any one of the articles is less to make complete product then product will not be sellable.
 - Additional API added to get the available product, as it would be useful for getting sellable product.
 - No Racing conditon was considered during implementation of this solution.
 - Considered "Product name" as input for sell API product instead of Product ID as the Json only had product name.
@@ -30,7 +30,7 @@ Details of the assignment could be found in link
     - Load articles and products from No SQL DB.
     - Update of Article inventory using API.
     - Scale up the API and for concurrency checks.
-    - More test automation for easy maitainability of code base.
+    - More test automation for easy maintainability of code base.
 
 ### 📁 Project Structure
 
@@ -60,7 +60,7 @@ npm install
 
 ### 📂 Data Files
 
-[inventory.json](/src/data/inventory.json) & [products.json](/src/data/products.json) had to be copied to dist/data folder, for running this app properly as I am refering data from these file as sample load
+[inventory.json](/src/data/inventory.json) & [products.json](/src/data/products.json) had to be copied to dist/data folder, for running this app properly as I am referring data from these files as sample load
 
 - inventory.json: Contains article definitions with art_id, name, and stock.
 
@@ -84,8 +84,8 @@ npm test
 | Method | Endpoint              | Description                                                                                          |
 | ------ | --------------------- | ---------------------------------------------------------------------------------------------------- |
 | GET    | /warehouse/products   | Returns all products and the quantity of each that is available with the current inventory.          |
-| POST   | /warehouse/sell/:name | Sells one unit of the specified product and updates the inventory. where :name is name of he product |
-| GET    | /warehouse/products   | get the available products price, along with quantity available in Inventory                         |
+| POST   | /warehouse/sell/:name | Sells one unit of the specified product and updates the inventory. where :name is name of the product. |
+| GET    | /warehouse/products   | get the available products price, along with quantity available in Inventory.                         |
 
 Example:
 
