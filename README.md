@@ -51,12 +51,7 @@ warehouse-app/
 ├── tsconfig.json
 ```
 
-### 🛠 Installation
 
-```bash
-npm install
-
-```
 
 ### 📂 Data Files
 
@@ -65,6 +60,14 @@ npm install
 - inventory.json: Contains article definitions with art_id, name, and stock.
 
 - products.json: Contains product definitions with name, price and required articles.
+
+### 🛠 Installation
+
+```bash
+npm install
+
+```
+
 
 ### ⚙️ Build and Run
 
@@ -83,7 +86,7 @@ npm test
 
 | Method | Endpoint              | Description                                                                                          |
 | ------ | --------------------- | ---------------------------------------------------------------------------------------------------- |
-| GET    | /warehouse/products   | Returns all products and the quantity of each that is available with the current inventory.          |
+| GET    | /warehouse/inventory   | Returns all products and the quantity of each that is available with the current inventory.          |
 | POST   | /warehouse/sell/:name | Sells one unit of the specified product and updates the inventory. where :name is name of the product. |
 | GET    | /warehouse/products   | get the available products price, along with quantity available in Inventory.                         |
 
